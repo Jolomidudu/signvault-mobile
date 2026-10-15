@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
 abstract final class AppColors {
-  static const primary = Color(0xFF176B55);
-  static const primaryDark = Color(0xFF104A3D);
-  static const accent = Color(0xFFC7A66A);
-  static const canvas = Color(0xFFF5F7F5);
+  static const primary = Color(0xFF0F172A);
+  static const primaryDark = Color(0xFF0F172A);
+  static const accent = Color(0xFF2563EB);
+  static const accentSoft = Color(0xFFEFF6FF);
+  static const successSoft = Color(0xFFECFDF5);
+  static const surfaceMuted = Color(0xFFF1F5F9);
+  static const progressTrack = Color(0xFF334155);
+  static const canvas = Color(0xFFF8FAFC);
   static const surface = Colors.white;
-  static const text = Color(0xFF17251F);
-  static const muted = Color(0xFF69766F);
-  static const border = Color(0xFFE1E8E3);
-  static const success = Color(0xFF287A56);
+  static const text = Color(0xFF0F172A);
+  static const muted = Color(0xFF64748B);
+  static const border = Color(0xFFE2E8F0);
+  static const success = Color(0xFF047857);
   static const error = Color(0xFFB4473E);
   static const warning = Color(0xFF9B702A);
 }
@@ -46,12 +50,21 @@ abstract final class AppTypography {
 
 abstract final class AppTheme {
   static ThemeData get light {
-    final scheme = ColorScheme.fromSeed(
-      seedColor: AppColors.primary,
-      brightness: Brightness.light,
-      surface: AppColors.surface,
-      error: AppColors.error,
-    );
+    final scheme =
+        ColorScheme.fromSeed(
+          seedColor: AppColors.primary,
+          brightness: Brightness.light,
+          surface: AppColors.surface,
+          error: AppColors.error,
+        ).copyWith(
+          primary: AppColors.primary,
+          onPrimary: Colors.white,
+          secondary: AppColors.accent,
+          onSecondary: Colors.white,
+          surface: AppColors.surface,
+          onSurface: AppColors.text,
+          outline: AppColors.border,
+        );
     return ThemeData(
       useMaterial3: true,
       colorScheme: scheme,
@@ -82,7 +95,7 @@ abstract final class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppRadius.sm),
-          borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
+          borderSide: const BorderSide(color: AppColors.accent, width: 1.5),
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
@@ -97,7 +110,7 @@ abstract final class AppTheme {
         ),
       ),
       textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(foregroundColor: AppColors.primary),
+        style: TextButton.styleFrom(foregroundColor: AppColors.accent),
       ),
       dividerTheme: const DividerThemeData(color: AppColors.border),
     );

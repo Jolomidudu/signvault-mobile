@@ -271,7 +271,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: const Color(0xFFE8F1EB),
+                color: AppColors.successSoft,
                 borderRadius: BorderRadius.circular(AppRadius.sm),
               ),
               child: const Text(
@@ -395,7 +395,7 @@ class VerifyEmailScreen extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(18),
           decoration: BoxDecoration(
-            color: const Color(0xFFE8F1EB),
+            color: AppColors.successSoft,
             borderRadius: BorderRadius.circular(AppRadius.md),
           ),
           child: const Text(

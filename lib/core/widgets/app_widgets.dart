@@ -2,6 +2,19 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_theme.dart';
 
+class SignVaultLogo extends StatelessWidget {
+  const SignVaultLogo({super.key, required this.size});
+  final double size;
+
+  @override
+  Widget build(BuildContext context) => Image.asset(
+    'assets/images/sign.png',
+    width: size,
+    height: size,
+    fit: BoxFit.contain,
+  );
+}
+
 class SignVaultWordmark extends StatelessWidget {
   const SignVaultWordmark({
     super.key,
@@ -15,28 +28,15 @@ class SignVaultWordmark extends StatelessWidget {
   Widget build(BuildContext context) => Row(
     mainAxisSize: MainAxisSize.min,
     children: [
-      Container(
-        width: compact ? 34 : 42,
-        height: compact ? 34 : 42,
-        decoration: BoxDecoration(
-          color: light
-              ? Colors.white.withValues(alpha: 0.14)
-              : AppColors.primary,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Icon(
-          Icons.draw_rounded,
-          color: Colors.white,
-          size: compact ? 19 : 23,
-        ),
-      ),
+      SignVaultLogo(size: compact ? 34 : 42),
       const SizedBox(width: 10),
       Text(
         'SignVault',
         style: TextStyle(
-          color: light ? Colors.white : AppColors.text,
-          fontSize: compact ? 18 : 21,
-          fontWeight: FontWeight.w700,
+          color: light ? Colors.white : AppColors.primary,
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+          letterSpacing: -0.45,
         ),
       ),
     ],
@@ -158,7 +158,6 @@ class _PasswordFieldState extends State<PasswordField> {
     validator: widget.validator,
     decoration: InputDecoration(
       labelText: widget.label,
-      prefixIcon: const Icon(Icons.lock_outline),
       suffixIcon: IconButton(
         tooltip: _obscure ? 'Show password' : 'Hide password',
         onPressed: () => setState(() => _obscure = !_obscure),

@@ -99,8 +99,8 @@ class HomeScreen extends StatelessWidget {
               child: const LinearProgressIndicator(
                 value: 0.16,
                 minHeight: 6,
-                backgroundColor: Color(0xFF41695C),
-                color: Color(0xFFD4B779),
+                backgroundColor: AppColors.progressTrack,
+                color: AppColors.accent,
               ),
             ),
           ],
@@ -250,7 +250,7 @@ class SignatureCard extends StatelessWidget {
           height: 58,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: const Color(0xFFF3F6F3),
+            color: AppColors.canvas,
             borderRadius: BorderRadius.circular(8),
           ),
           child: Text(
@@ -288,8 +288,8 @@ class SignatureCard extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
           decoration: BoxDecoration(
             color: signature.status == SignatureStatus.active
-                ? const Color(0xFFE6F1EA)
-                : const Color(0xFFF0F1EF),
+                ? AppColors.successSoft
+                : AppColors.surfaceMuted,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Text(
@@ -334,7 +334,7 @@ class ActivityScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const CircleAvatar(
-                backgroundColor: Color(0xFFE7F0EA),
+                backgroundColor: AppColors.accentSoft,
                 child: Icon(
                   Icons.draw_outlined,
                   color: AppColors.primary,
@@ -396,7 +396,7 @@ class ProfileScreen extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 26,
-              backgroundColor: Color(0xFFE7F0EA),
+              backgroundColor: AppColors.accentSoft,
               child: Text(
                 'AM',
                 style: TextStyle(
@@ -463,13 +463,13 @@ class CreateSignatureScreen extends StatelessWidget {
               width: 84,
               height: 84,
               decoration: BoxDecoration(
-                color: const Color(0xFFE5EFE9),
+                color: AppColors.accentSoft,
                 borderRadius: BorderRadius.circular(24),
               ),
               child: const Icon(
                 Icons.draw_outlined,
                 size: 42,
-                color: AppColors.primary,
+                color: AppColors.accent,
               ),
             ),
             const SizedBox(height: 20),
