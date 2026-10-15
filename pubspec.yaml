@@ -21,3 +21,12 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/fonts/
+
+  fonts:
+    - family: Mulish
+      fonts:
+        - asset: assets/fonts/Mulish-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Mulish-SemiBold.ttf
+          weight: 600

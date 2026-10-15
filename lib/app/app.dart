@@ -11,7 +11,7 @@ class SignVaultApp extends StatefulWidget {
   const SignVaultApp({
     super.key,
     this.appState,
-    this.initialLocation = '/splash',
+    this.initialLocation = '/onboarding',
   });
 
   final AppState? appState;
@@ -36,10 +36,6 @@ class _SignVaultAppState extends State<SignVaultApp> {
       return null;
     },
     routes: [
-      GoRoute(
-        path: '/splash',
-        builder: (context, state) => SplashScreen(appState: _appState),
-      ),
       GoRoute(
         path: '/onboarding',
         builder: (context, state) => OnboardingScreen(appState: _appState),

@@ -5,10 +5,10 @@ import 'package:signvault_mobile/app/app_state.dart';
 import 'package:signvault_mobile/mock/mock_data.dart';
 
 void main() {
-  testWidgets('splash renders SignVault branding', (tester) async {
+  testWidgets('app opens directly to SignVault onboarding', (tester) async {
     await tester.pumpWidget(const SignVaultApp());
     expect(find.text('SignVault'), findsOneWidget);
-    expect(find.text('Your Signature. Your Control.'), findsOneWidget);
+    expect(find.text('Your Signature.\nYour Control.'), findsOneWidget);
   });
 
   testWidgets('onboarding advances and Get Started opens welcome', (
@@ -16,10 +16,13 @@ void main() {
   ) async {
     await tester.pumpWidget(const SignVaultApp(initialLocation: '/onboarding'));
     expect(find.text('Your Signature.\nYour Control.'), findsOneWidget);
-    await tester.tap(find.text('Next'));
+    await tester.tap(find.text('NEXT'));
     await tester.pumpAndSettle();
     expect(find.text('Create. Copy. Sign.'), findsOneWidget);
-    await tester.tap(find.text('Skip'));
+    await tester.tap(find.text('SKIP'));
+    await tester.pumpAndSettle();
+    expect(find.text('Built for Trust.'), findsOneWidget);
+    await tester.tap(find.text('GET STARTED'));
     await tester.pumpAndSettle();
     expect(find.text('Create Account'), findsOneWidget);
   });
