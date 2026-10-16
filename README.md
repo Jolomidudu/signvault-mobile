@@ -1,3 +1,3 @@
-# signvault_mobile
+# signvault
 
 A new Flutter project.
