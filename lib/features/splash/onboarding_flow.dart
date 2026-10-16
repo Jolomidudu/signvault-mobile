@@ -27,17 +27,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     (
       'Your Signature.\nYour Control.',
       'Create and securely keep your signatures in one personal vault.',
-      'assets/images/onboard_illustration_1.png',
+      'assets/images/a.png',
     ),
     (
       'Create. Copy. Sign.',
       'Create signatures you love and use them wherever you need them.',
-      'assets/images/onboard_illustration_2.png',
+      'assets/images/b.png',
     ),
     (
       'Built for Trust.',
       'Manage your signature versions, activity and security from one place.',
-      'assets/images/onboard_illustration_3.png',
+      'assets/images/c.png',
     ),
   ];
 

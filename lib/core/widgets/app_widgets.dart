@@ -8,7 +8,7 @@ class SignVaultLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Image.asset(
-    'assets/images/sign.png',
+    'assets/images/sv-250.png',
     width: size,
     height: size,
     fit: BoxFit.contain,

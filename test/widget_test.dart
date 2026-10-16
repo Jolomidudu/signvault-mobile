@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:signvault_mobile/app/app.dart';
-import 'package:signvault_mobile/app/app_state.dart';
-import 'package:signvault_mobile/mock/mock_data.dart';
+import 'package:signvault/app/app.dart';
+import 'package:signvault/app/app_state.dart';
+import 'package:signvault/mock/mock_data.dart';
 
 void main() {
   testWidgets('app opens directly to SignVault onboarding', (tester) async {
