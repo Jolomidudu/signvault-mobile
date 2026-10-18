@@ -91,7 +91,7 @@ void main() {
     expect(find.text('Alex Morgan'), findsOneWidget);
     await tester.tap(find.text('Sign Out'));
     await tester.pumpAndSettle();
-    expect(find.text('Your Signature.\nYour Control.'), findsOneWidget);
+    expect(find.text('Create. Copy. Sign.'), findsOneWidget);
     appState.dispose();
   });
 

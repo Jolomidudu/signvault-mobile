@@ -234,41 +234,120 @@ class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-    body: SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(28),
+  Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+    final height = MediaQuery.sizeOf(context).height;
+    final compact = width <= 550;
+
+    return Scaffold(
+      backgroundColor: const Color(0xFFFFE5DE),
+      body: SafeArea(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 18),
-            const SignVaultWordmark(),
-            const Spacer(),
-            const SignVaultLogo(size: 84),
-            const SizedBox(height: 26),
-            const Text(
-              'Your Signature.\nYour Control.',
-              style: AppTypography.title,
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 12, 24, 0),
+              child: Row(
+                children: [
+                  const SignVaultLogo(size: 34),
+                  const SizedBox(width: 10),
+                  const Text(
+                    'SignVault',
+                    style: TextStyle(
+                      color: AppColors.primary,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(height: 14),
-            Text(
-              'Create, store and use your signature securely.',
-              style: AppTypography.body.copyWith(color: AppColors.muted),
+            Expanded(
+              flex: 3,
+              child: Padding(
+                padding: const EdgeInsets.all(32),
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Image.asset(
+                        'assets/images/b.png',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    SizedBox(height: height >= 840 ? 40 : 24),
+                    Text(
+                      'Create. Copy. Sign.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: 'Mulish',
+                        fontWeight: FontWeight.w600,
+                        fontSize: compact ? 30 : 35,
+                        color: AppColors.primary,
+                      ),
+                    ),
+                    const SizedBox(height: 15),
+                    Text(
+                      'Create signatures you love and use them wherever you need them.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: 'Mulish',
+                        fontWeight: FontWeight.w300,
+                        fontSize: compact ? 17 : 25,
+                        color: AppColors.muted,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            const Spacer(),
-            PrimaryButton(
-              label: 'Create Account',
-              onPressed: () => context.go('/register'),
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.all(30),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TextButton(
+                        onPressed: () => context.go('/login'),
+                        style: TextButton.styleFrom(
+                          foregroundColor: AppColors.primary,
+                          textStyle: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: compact ? 13 : 17,
+                          ),
+                        ),
+                        child: const Text('Sign In'),
+                      ),
+                      ElevatedButton(
+                        onPressed: () => context.go('/register'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primary,
+                          foregroundColor: Colors.white,
+                          elevation: 0,
+                          minimumSize: const Size(0, 54),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 30,
+                            vertical: compact ? 20 : 25,
+                          ),
+                          textStyle: TextStyle(
+                            fontSize: compact ? 13 : 17,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        child: const Text('Create Account'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
-            const SizedBox(height: 12),
-            SecondaryButton(
-              label: 'Sign In',
-              onPressed: () => context.go('/login'),
-            ),
-            const SizedBox(height: 12),
           ],
         ),
       ),
-    ),
-  );
+    );
+  }
 }
